@@ -3,8 +3,9 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.10'
+
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3', '~> 1.3.6'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -40,3 +41,11 @@ group :development do
   gem 'web-console', '~> 2.0'
 end
 
+group :development, :test do
+  gem 'sqlite3', '~> 1.3.0' # sqlite3 works only in dev
+end
+
+group :production do
+  gem 'pg', '~> 0.21' # for postgresql
+  gem 'rails_12factor' # for best practices for Heroku deployement; Rails 5 and up do not need it
+end
